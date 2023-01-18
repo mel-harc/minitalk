@@ -1,12 +1,13 @@
 #include "minitalk.h"
 
-void    trait_message(char *data, int pid)
+void    trait_message(char *data, int pid, int x)
 {
     int i;
     int count;
     
 
     i = 0;
+
     while(data[i])
     {
         count = -1;
@@ -22,7 +23,7 @@ void    trait_message(char *data, int pid)
                 if (kill(pid, SIGUSR1) == -1)
                     exit(1);
             }
-            usleep(300);
+            usleep(x);
         }
     i++;
     }
@@ -43,9 +44,22 @@ static  int    ft_check_args(int argc, char **argv)
     return (0);  
 }
 
+static size_t   ft_counter(char *av)
+{
+    int		x;
+
+	x = ft_strlen(av);
+    ft_printf("%d", x);
+	if (x >= 10000)
+		return (700);
+	else
+		return (100);
+}
+
 int     main(int ac, char *av[])
 {
     int   pid;
+    int   x;
 
     
     if (ft_check_args(ac, av))
@@ -54,6 +68,7 @@ int     main(int ac, char *av[])
     if (pid <= 0)
         return (0);
     pid = ft_atoi(av[1]);
-    trait_message(av[2], pid);
+    x = ft_counter(av[2]);
+    trait_message(av[2], pid, x);
 
 }
