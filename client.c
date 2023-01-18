@@ -49,7 +49,6 @@ static size_t   ft_counter(char *av)
     int		x;
 
 	x = ft_strlen(av);
-    ft_printf("%d", x);
 	if (x >= 10000)
 		return (700);
 	else
