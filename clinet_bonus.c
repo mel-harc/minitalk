@@ -1,31 +1,23 @@
 #include "minitalk.h"
 
-void    trait_message(char *data, int pid, int x)
+void    trait_message(char data, int pid, int x)
 {
-    int i;
     int count;
-    
 
-    i = 0;
-
-    while(data[i])
+    count = -1;
+    while (++count < 8)
     {
-        count = -1;
-        while (++count < 8)
+        if (data & (0x80 >> count))
         {
-            if (data[i] & (0x80 >> count))
-            {
-                if (kill(pid, SIGUSR2) == -1)
-                    exit(1);
-            }
-            else
-            {    
-                if (kill(pid, SIGUSR1) == -1)
-                    exit(1);
-            }
-            usleep(x);
+            if (kill(pid, SIGUSR2) == -1)
+                exit(1);
         }
-    i++;
+        else
+        {    
+            if (kill(pid, SIGUSR1) == -1)
+                exit(1);
+        }
+        usleep(x);
     }
 }
 
@@ -50,17 +42,25 @@ static size_t   ft_counter(char *av)
 
 	x = ft_strlen(av);
 	if (x >= 10000)
-		return (400);
+		return (1500);
 	else
-		return (100);
+		return (500);
+}
+
+void    finaly_function(int n)
+{
+    if (n == SIGUSR1)
+        ft_printf("recieve\n");
 }
 
 int     main(int ac, char *av[])
 {
     int   pid;
     int   x;
+    int    i;
 
-    
+    i = -1;
+    signal(SIGUSR1, finaly_function);
     if (ft_check_args(ac, av))
         return (-1);
     pid = ft_atoi(av[1]);
@@ -68,7 +68,8 @@ int     main(int ac, char *av[])
         return (0);
     pid = ft_atoi(av[1]);
     x = ft_counter(av[2]);
-    trait_message(av[2], pid, x);
-    trait_message("\n", pid, 100);
-
+    while(av[2][++i])
+        trait_message(av[2][i], pid, x);
+    trait_message('\0', pid, 100);
+    return(0);
 }
