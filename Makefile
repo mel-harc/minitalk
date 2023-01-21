@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mel-harc <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/01/21 22:48:40 by mel-harc          #+#    #+#              #
+#    Updated: 2023/01/21 23:10:26 by mel-harc         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 SUB_FUNCT = sub_function.c 
 
 SERVER = server
@@ -8,9 +20,9 @@ CLINET_BONUS = 	client_bonus
 
 SERVER_BONUS = server_bonus
 
-PRINTF = printf
+PRINTF = ft_printf
 
-CFLAGS = -Wall -Werror -Wextra printf/libftprintf.a
+CFLAGS = -Wall -Werror -Wextra ft_printf/libftprintf.a
 
 all : 
 	
@@ -34,6 +46,3 @@ fclean : clean
 		@echo "Server and Client Cleaned"
 
 re : fclean all
-
-
-
