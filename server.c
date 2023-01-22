@@ -47,7 +47,7 @@ int	main(int ac, char **av)
 	(void)av;
 	action.sa_sigaction = &signl_handler;
 	pid = getpid();
-	ft_printf("THIS IS PID : %d\n", pid);
+	ft_printf("💳 THIS IS PID : %d\n", pid);
 	sigaction(SIGUSR1, &action, NULL);
 	sigaction(SIGUSR2, &action, NULL);
 	while (1)

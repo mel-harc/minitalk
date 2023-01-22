@@ -6,7 +6,7 @@
 /*   By: mel-harc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 23:04:00 by mel-harc          #+#    #+#             */
-/*   Updated: 2023/01/22 02:25:45 by mel-harc         ###   ########.fr       */
+/*   Updated: 2023/01/22 18:26:25 by mel-harc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,8 @@ int	main(int ac, char **av)
 	(void)ac;
 	(void)av;
 	action.sa_sigaction = &signl_handler;
-	action.sa_flags = SA_SIGINFO;
 	pid = getpid();
-	ft_printf("THIS IS PID : %d\n", pid);
+	ft_printf("💳 THIS IS PID : %d\n", pid);
 	sigaction(SIGUSR1, &action, NULL);
 	sigaction(SIGUSR2, &action, NULL);
 	while (1)

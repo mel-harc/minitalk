@@ -62,7 +62,7 @@ size_t	ft_counter(char *av)
 void	finaly_function(int n)
 {
 	if (n == SIGUSR1)
-		ft_printf("recieve\n");
+		ft_printf("RECEIVE 👍\n");
 }
 
 int	main(int ac, char *av[])

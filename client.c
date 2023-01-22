@@ -71,7 +71,7 @@ int	main(int ac, char *av[])
 	int	x;
 
 	if (ft_check_args(ac, av))
-		return (-1);
+		ft_printf("This argument not valid, tray again!");
 	pid = ft_atoi(av[1]);
 	if (pid <= 0)
 		return (0);
