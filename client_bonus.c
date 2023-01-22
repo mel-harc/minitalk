@@ -6,11 +6,11 @@
 /*   By: mel-harc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 22:54:54 by mel-harc          #+#    #+#             */
-/*   Updated: 2023/01/21 23:02:56 by mel-harc         ###   ########.fr       */
+/*   Updated: 2023/01/22 02:26:06 by mel-harc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
 
 void	trait_message(char data, int pid, int x)
 {
@@ -38,7 +38,7 @@ int	ft_check_args(int argc, char **argv)
 	int	i;
 
 	i = -1;
-	if (args != 3)
+	if (argc != 3)
 		return (1);
 	while (argv[1][++i])
 	{

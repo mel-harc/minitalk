@@ -6,11 +6,11 @@
 /*   By: mel-harc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 23:04:00 by mel-harc          #+#    #+#             */
-/*   Updated: 2023/01/21 23:15:58 by mel-harc         ###   ########.fr       */
+/*   Updated: 2023/01/22 02:25:45 by mel-harc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
 
 void	signl_handler(int signum, siginfo_t *info, void *context)
 {

@@ -6,7 +6,7 @@
 #    By: mel-harc <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/21 22:48:40 by mel-harc          #+#    #+#              #
-#    Updated: 2023/01/21 23:10:26 by mel-harc         ###   ########.fr        #
+#    Updated: 2023/01/22 01:44:57 by mel-harc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ all :
 
 bonus :
 		@make -s -C ${PRINTF}
-		@cc $(CFLAGS) clinet_bonus.c $(SUB_FUNCT) -o $(CLINET_BONUS)
+		@cc $(CFLAGS) client_bonus.c $(SUB_FUNCT) -o $(CLINET_BONUS)
 		@cc $(CFLAGS) server_bonus.c -o $(SERVER_BONUS)
 		@echo "server_bonus And client_bonus Are Ready Now!"
 
@@ -46,3 +46,5 @@ fclean : clean
 		@echo "Server and Client Cleaned"
 
 re : fclean all
+
+.PHONY: all clean fclean re
