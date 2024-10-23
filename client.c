@@ -12,7 +12,7 @@
 
 #include "minitalk.h"
 
-void	trait_message(char *data, int pid, int x)
+void	handle_message(char *data, int pid, int x)
 {
 	int	i;
 	int	count;
@@ -71,10 +71,13 @@ int	main(int ac, char *av[])
 	int	x;
 
 	if (ft_check_args(ac, av))
-		ft_printf("This argument not valid, tray again!");
+	{
+		ft_printf("This argument not valid, tray again!\n");
+		return 1;
+	}
 	pid = ft_atoi(av[1]);
 	if (pid <= 0)
 		return (0);
 	x = ft_counter(av[2]);
-	trait_message(av[2], pid, x);
+	handle_message(av[2], pid, x);
 }

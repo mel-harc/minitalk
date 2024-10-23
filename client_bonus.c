@@ -12,7 +12,7 @@
 
 #include "minitalk_bonus.h"
 
-void	trait_message(char data, int pid, int x)
+void	handle_message(char data, int pid, int x)
 {
 	int	count;
 
@@ -80,7 +80,7 @@ int	main(int ac, char *av[])
 		return (0);
 	x = ft_counter(av[2]);
 	while (av[2][++i])
-		trait_message(av[2][i], pid, x);
-	trait_message('\0', pid, x);
+		handle_message(av[2][i], pid, x);
+	handle_message('\0', pid, x);
 	return (0);
 }
